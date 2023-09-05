@@ -1,4 +1,4 @@
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,11 +13,11 @@ body {
   .card {
     background: #000000d0;
     color: white;
-    padding: 2em;
+    padding: 1.5em;
     border-radius: 30px;
     width: 18rem;
     max-width: 420px;
-    margin: 1rem 26rem;
+    margin: 2rem;
     
   }
   
@@ -35,7 +35,7 @@ body {
   .description {
     text-transform: capitalize;
     margin-left: 8px;
-  }
+  }*/
   
   .weather.loading {
     visibility: hidden;
@@ -50,4 +50,25 @@ body {
     position: absolute;
     top: 0;
     left: 20px;
-  }
+  } 
+
+
+body{
+  background-image: url('https://source.unsplash.com/1600x900/?landscape');
+}
+
+  .card {
+    /* border: 1px solid black; */
+    margin: 2rem;
+    padding: 1.5rem;
+    background: #000000d0;
+    color: white;
+    border-radius: 30px;
+    width: 18rem;
+    max-width: 420px;
+}
+
+
+.temp {
+    font-size: 2rem;
+}
