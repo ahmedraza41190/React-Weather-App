@@ -7,15 +7,19 @@ const Home = () => {
   // not recommended
   // const [cityName, setCityName] = useState("");
 
+  
+
   const [weatherData, setWeatherData] = useState([]);
   const cityNameRef = useRef(null);
 
   const [currentLocationWeather, setCurrentLocationWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  
+
+ 
+
   useEffect(() => {
     setIsLoading(true);
-    
+
     const controller = new AbortController();
 
     if (navigator.geolocation) {
@@ -72,7 +76,7 @@ const Home = () => {
   };
 
   return (
-    <div className="d">
+    <div className="main">
       <form onSubmit={submitHandler} className="inputCard">
         <label htmlFor="cityNameInput"></label>
         <input
@@ -96,15 +100,21 @@ const Home = () => {
 
       <hr />
 
-      {isLoading ? <div>Loading...</div> : null}
+      <div className="result">
 
-      {weatherData.length || currentLocationWeather || isLoading ? null : <div>No Data</div>}
+        {isLoading ?  <div>Loading...</div> : null}
 
-      {weatherData.map((eachWeatherData, index) => {
-        return <WeatherCard key={index} weatherData={eachWeatherData} />;
-      })}
+        {weatherData.length || currentLocationWeather || isLoading ? null : <div>No data found</div>}
 
-      {currentLocationWeather ? <WeatherCard weatherData={currentLocationWeather} /> : null}
+        {weatherData.map((eachWeatherData, index) => {
+          return <WeatherCard key={index} weatherData={eachWeatherData} />;
+        })}
+
+        {currentLocationWeather ? <WeatherCard weatherData={currentLocationWeather} /> : null}
+
+      </div>
+
+
     </div>
   );
 };
